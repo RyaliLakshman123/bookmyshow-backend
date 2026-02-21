@@ -21,6 +21,9 @@ const LANGUAGE_MAP = {
   Japanese: "ja-JP",
   Korean: "ko-KR",
   Silent: "xx",
+  French: "fr-FR",
+  Spanish: "es-ES",
+  Sanskrit: "sa-IN",
 };
 
 const ORIGINAL_LANGUAGE_MAP = {
@@ -35,6 +38,9 @@ const ORIGINAL_LANGUAGE_MAP = {
   "ja-JP": "ja",
   "ko-KR": "ko",
   "xx": "xx",
+  "fr-FR": "fr",
+  "es-ES": "es",
+  "sa-IN": "sa",
 };
 
 // ─────────────────────────────────────────────────────────────
@@ -80,6 +86,9 @@ function dedupeById(movies) {
 // ─────────────────────────────────────────────────────────────
 
 async function fetchMoviesByLanguage(language = "All", category = "now_showing") {
+if (language === "Multi Language") {
+  language = "All";
+}
   const langCode = LANGUAGE_MAP[language] || "en-US";
   const originalLang = ORIGINAL_LANGUAGE_MAP[langCode] || "en";
 
