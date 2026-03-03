@@ -4,14 +4,13 @@ const router = express.Router();
 const { getHome } = require("../controllers/home.controller");
 const { getHomeSections } = require("../controllers/home-sections.controller");
 
-// 🔥 TMDB CONTROLLERS
 const {
   getMovieDetail,
   getMovieCredits,
   getMovieRecommendations,
   getPersonDetail,
   getPersonMovies,
-  getPersonImages   // ADD THIS
+  getPersonImages   // ✅ NEW
 } = require("../controllers/tmdb.controller");
 
 // ─────────────────────────────────────────
@@ -33,6 +32,6 @@ router.get("/movie/:id/recommendations", getMovieRecommendations);
 // Person
 router.get("/person/:id", getPersonDetail);
 router.get("/person/:id/movies", getPersonMovies);
-router.get("/person/:id/images", getPersonImages); // ADD THIS
+router.get("/person/:id/images", getPersonImages); // ✅ ADDED
 
 module.exports = router;

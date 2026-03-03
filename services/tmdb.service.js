@@ -152,30 +152,6 @@ if (language === "Multi Language") {
       );
     }
 
-// ─────────────────────────────────────────
-// PERSON IMAGES
-// ─────────────────────────────────────────
-
-exports.getPersonImages = async (req, res) => {
-  try {
-    const { id } = req.params;
-
-    const response = await axios.get(
-      `${TMDB_BASE_URL}/person/${id}/images`,
-      {
-        params: {
-          api_key: TMDB_API_KEY
-        }
-      }
-    );
-
-    res.json(response.data);
-
-  } catch (error) {
-    console.error("❌ TMDB Person Images Error:", error.message);
-    res.status(500).json({ error: "Failed to fetch person images" });
-  }
-};
 
     // ============================================================
     // NOW SHOWING (DEFAULT)
