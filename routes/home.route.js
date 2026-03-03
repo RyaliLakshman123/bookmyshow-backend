@@ -4,27 +4,25 @@ const router = express.Router();
 const { getHome } = require("../controllers/home.controller");
 const { getHomeSections } = require("../controllers/home-sections.controller");
 
-// 🔥 NEW CONTROLLERS
+// 🔥 TMDB CONTROLLERS
 const {
   getMovieDetail,
   getMovieCredits,
   getMovieRecommendations,
   getPersonDetail,
-  getPersonMovies
+  getPersonMovies,
+  getPersonImages   // ADD THIS
 } = require("../controllers/tmdb.controller");
 
 // ─────────────────────────────────────────
 // EXISTING
 // ─────────────────────────────────────────
 
-// Movies screen endpoint
 router.get("/home", getHome);
-
-// Home screen sections endpoint
 router.get("/home-sections", getHomeSections);
 
 // ─────────────────────────────────────────
-// NEW TMDB PROXY ROUTES (Secure API)
+// TMDB PROXY ROUTES
 // ─────────────────────────────────────────
 
 // Movie
@@ -35,5 +33,6 @@ router.get("/movie/:id/recommendations", getMovieRecommendations);
 // Person
 router.get("/person/:id", getPersonDetail);
 router.get("/person/:id/movies", getPersonMovies);
+router.get("/person/:id/images", getPersonImages); // ADD THIS
 
 module.exports = router;
